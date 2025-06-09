@@ -1,0 +1,30 @@
+networks:
+  server:
+    external: true
+volumes:
+    phpsocket:
+services:
+  nginx:
+    container_name: nginx
+    build: ./docker/nginx
+    restart: always
+    environment:
+      - TZ=${TZ}
+    volumes:
+      - ./nginx:/etc/nginx
+      - ./src:/etc/nginx/html/website:ro
+      - phpsocket:/var/run
+    ports:
+      - 80:80
+    networks:
+      - server
+  php:
+    container_name: php
+    build: ./docker/php
+    volumes:
+      - ./src:/var/www/html
+      - ./db:/var/data/
+      - phpsocket:/var/run
+    networks:
+      - server
+    restart: always
