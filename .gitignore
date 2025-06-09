@@ -1,3 +1,4 @@
-*.db
 **/.cache/*
+*.db
+.env
 .php-cs-fixer.cache
