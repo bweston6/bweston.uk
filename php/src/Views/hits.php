@@ -1,5 +1,5 @@
 <?php
-require_once ROOT_DIR . '/includes/db.php';
+require_once 'db.php';
 
 $db->exec('BEGIN');
 $db->query('UPDATE hits SET count = count + 1');

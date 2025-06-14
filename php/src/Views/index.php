@@ -1,6 +1,5 @@
 <?php
-define("ROOT_DIR", __DIR__);
-require_once ROOT_DIR . "/partials/lqip.php";
+require_once "lqip.php";
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +13,7 @@ require_once ROOT_DIR . "/partials/lqip.php";
 		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
 		<!-- <link rel="stylesheet" href="style.css"> -->
 		<style>
-			<?php require ROOT_DIR . "/style.css" ?>
+			<?php require dirname(BASEPATH) . "/public/style.css" ?>
 		</style>
 
 		<!-- low quality image previews -->
@@ -25,7 +24,7 @@ require_once ROOT_DIR . "/partials/lqip.php";
 			<section class="top" aria-label="top">
 				<div class="wrapper">
 					<p class="h1">Ben Weston</p>
-					<p>Welcome! Today is <?= date("l F j, Y") ?> and this website has had <?= require(ROOT_DIR . "/partials/hits.php"); ?> hits.</p>
+					<p>Welcome! Today is <?= date("l F j, Y") ?> and this website has had <?= require("hits.php"); ?> hits.</p>
 				</div>
 			</section>
 			<section class="bottom" aria-label="bottom">
@@ -40,7 +39,7 @@ require_once ROOT_DIR . "/partials/lqip.php";
 
 		<main id="main" class="wrapper">
 			<?php
-			$posts = glob(ROOT_DIR . '/blog/*.php');
+			$posts = glob(__DIR__ . '/blog/*.php');
 
 			foreach ($posts as $post) {
 				echo "<article>";

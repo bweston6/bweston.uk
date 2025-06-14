@@ -1,4 +1,4 @@
-<?php require_once ROOT_DIR . "/partials/image.php"; ?>
+<?php require_once dirname(__DIR__) . "/image.php"; ?>
 
 <h1 id="home-assistant-automated-blinds-build-log">Home Assistant
 Automated Blinds Build Log</h1>

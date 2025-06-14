@@ -5,7 +5,7 @@ date: '2025-06-03T14:57+01:00'
 modified: '2025-06-03T14:57+01:00'
 ---
 
-<?php require_once ROOT_DIR . "/partials/image.php"; ?>
+<?php require_once dirname(__DIR__) . "/image.php"; ?>
 
 # Home Assistant Automated Blinds Build Log
 

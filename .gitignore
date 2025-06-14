@@ -2,3 +2,4 @@
 *.db
 .env
 .php-cs-fixer.cache
+**/vendor/*

@@ -1,0 +1,17 @@
+{
+    "name": "bweston6/bweston.uk",
+    "description": "Ben Weston's personal site.",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ben Weston"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
