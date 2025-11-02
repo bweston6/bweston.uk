@@ -72,6 +72,7 @@ function image(string $src, string $alt, string $class=""): string {
     ?>
 
     <img
+        loading="lazy"
 	    style="aspect-ratio: <?= $width ?> / <?= $height ?>; background-image: url(<?= $lqipUrl ?>)"
         <?= $class ? "class='$class'" : "" ?>
         src="<?= $images[array_key_last($images)]['url'] ?>" alt="<?= $alt ?>" 

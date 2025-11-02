@@ -15,6 +15,49 @@
   overflow-x: clip;
 }
 
+@font-face {
+  font-display: block;
+  font-family: "Crimson Text";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/CrimsonText-Bold.woff2");
+}
+@font-face {
+  font-display: block;
+  font-family: "Crimson Text";
+  font-style: italic;
+  font-weight: 700;
+  src: url("/fonts/CrimsonText-BoldItalic.woff2");
+}
+@font-face {
+  font-display: block;
+  font-family: "Crimson Text";
+  font-style: italic;
+  font-weight: 400;
+  src: url("/fonts/CrimsonText-Italic.woff2");
+}
+@font-face {
+  font-display: block;
+  font-family: "Crimson Text";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/CrimsonText-Regular.woff2");
+}
+@font-face {
+  font-display: block;
+  font-family: "Crimson Text";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/CrimsonText-SemiBold.woff2");
+}
+@font-face {
+  font-display: block;
+  font-family: "Crimson Text";
+  font-style: italic;
+  font-weight: 600;
+  src: url("/fonts/CrimsonText-SemiBoldItalic.woff2");
+}
+
 @media (prefers-reduced-motion: no-preference) {
   :root {
     scroll-behavior: smooth;
@@ -23,7 +66,6 @@
 
 body {
   display: grid;
-  font-family: system-ui, sans-serif;
   font-family: "Georgia", serif;
   grid-template-columns: minmax(0, 1fr);
   hyphens: auto;
@@ -101,9 +143,9 @@ input[type="radio"] {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: "Georgia", serif;
+  font-family: "Crimson Text", serif;
+  font-style: italic;
   line-height: 1;
-  text-transform: uppercase;
   text-wrap: balance;
 }
 

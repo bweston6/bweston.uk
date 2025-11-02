@@ -9,7 +9,7 @@ function getLqipLinkTags(): string {
 
     foreach($lqips as $lqip) {
         ?>
-		<link rel="preload" as="image" href="/assets/.cache/<?= $lqip ?>" fetchpriority="high">
+		<link rel="preload" as="image" href="/assets/.cache/<?= $lqip ?>">
         <?php
     }
     return ob_get_clean();
