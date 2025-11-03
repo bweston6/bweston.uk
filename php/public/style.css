@@ -6,38 +6,41 @@
   --clr-neutral-900: #f8f8f8;
   --clr-red: #c41c1c;
   --border-pillar: linear-gradient(
-      90deg,
-      var(--clr-neutral-300) 0%,
-      var(--clr-neutral-400) 50%,
-      var(--clr-neutral-300) 100%
+    90deg,
+    var(--clr-neutral-300) 0%,
+    var(--clr-neutral-400) 50%,
+    var(--clr-neutral-300) 100%
     )
     48%;
   --border-frame: linear-gradient(
-      90deg,
-      var(--clr-neutral-100) 0%,
-      var(--clr-neutral-200) 50%,
-      var(--clr-neutral-100) 100%
+    90deg,
+    var(--clr-neutral-100) 0%,
+    var(--clr-neutral-200) 50%,
+    var(--clr-neutral-100) 100%
     )
     48%;
   --border-pillar-and-frame: linear-gradient(
-      90deg,
-      var(--clr-neutral-300) 0%,
-      var(--clr-neutral-400) 24%,
-      var(--clr-neutral-100) 24%,
-      var(--clr-neutral-200) 50%,
-      var(--clr-neutral-100) 76%,
-      var(--clr-neutral-400) 76%,
-      var(--clr-neutral-300) 100%
+    90deg,
+    var(--clr-neutral-300) 0%,
+    var(--clr-neutral-400) 24%,
+    var(--clr-neutral-100) 24%,
+    var(--clr-neutral-200) 50%,
+    var(--clr-neutral-100) 76%,
+    var(--clr-neutral-400) 76%,
+    var(--clr-neutral-300) 100%
     )
     48%;
   --text-width: 70ch;
   --width-outer: 2rem;
-  @media (width < 768px) {
-    --width-outer: 1rem;
-  }
   background-image: url("/assets/clouds.avif");
   line-height: 1.5;
   scroll-padding-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --width-outer: 1rem;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -62,33 +65,33 @@ body {
 
 header {
   text-align: center;
-  .dome {
-    background-color: var(--clr-neutral-900);
-    border: var(--width-outer) solid var(--clr-red);
-    border-bottom: none;
-    border-radius: 50% 50% 50% 50% / 100% 100% 0% 0%;
-    padding-block-start: var(--width-outer);
-  }
-  nav {
-    --border-pillar: var(--width-outer) solid var(--clr-neutral-300);
-    border-left: var(--border-pillar);
-    border-right: var(--border-pillar);
-    color: var(--clr-neutral-900);
-    font-size: clamp(1.5rem, 1.1429rem + 1.5238vw, 2rem);
-    font-style: italic;
-    padding-block: 0.5rem;
-    background-color: var(--clr-neutral-100);
-    box-shadow:
-      -0.5rem 0 0 0 var(--clr-neutral-300),
-      0.5rem 0 0 0 var(--clr-neutral-300);
-  }
-  .banner {
-    background-color: var(--clr-red);
-    border-left: solid calc(var(--width-outer) * 2);
-    border-right: solid calc(var(--width-outer) * 2);
-    border-image: var(--border-pillar-and-frame);
-    height: 4rem;
-  }
+}
+header .dome {
+  background-color: var(--clr-neutral-900);
+  border: var(--width-outer) solid var(--clr-red);
+  border-bottom: none;
+  border-radius: 50% 50% 50% 50% / 100% 100% 0% 0%;
+  padding-block-start: var(--width-outer);
+}
+header nav {
+  --border-pillar: var(--width-outer) solid var(--clr-neutral-300);
+  border-left: var(--border-pillar);
+  border-right: var(--border-pillar);
+  color: var(--clr-neutral-900);
+  font-size: clamp(1.5rem, 1.1429rem + 1.5238vw, 2rem);
+  font-style: italic;
+  padding-block: 0.5rem;
+  background-color: var(--clr-neutral-100);
+  box-shadow:
+    -0.5rem 0 0 0 var(--clr-neutral-300),
+    0.5rem 0 0 0 var(--clr-neutral-300);
+}
+header .banner {
+  background-color: var(--clr-red);
+  border-left: solid calc(var(--width-outer) * 2);
+  border-right: solid calc(var(--width-outer) * 2);
+  border-image: var(--border-pillar-and-frame);
+  height: 4rem;
 }
 
 main {
@@ -105,29 +108,29 @@ footer {
   border-left: solid var(--width-outer);
   border-right: solid var(--width-outer);
   padding-block-end: 4rem;
-  .bottom-window {
-    border-left: solid var(--width-outer);
-    border-right: solid var(--width-outer);
-    border-image: var(--border-frame);
-  }
-  .bottom-frame {
-    background-color: var(--clr-neutral-100);
-    height: 4rem;
-  }
-  .electrical-box {
-    padding: 2rem;
-    background: linear-gradient(
-      135deg,
-      rgba(199, 199, 199, 1) 0%,
-      rgba(225, 225, 225, 1) 15%,
-      rgba(216, 216, 216, 1) 41%,
-      rgba(197, 197, 197, 1) 53%,
-      rgba(180, 180, 180, 1) 69%,
-      rgba(138, 138, 138, 1) 84%
+}
+footer .bottom-window {
+  border-left: solid var(--width-outer);
+  border-right: solid var(--width-outer);
+  border-image: var(--border-frame);
+}
+footer .bottom-frame {
+  background-color: var(--clr-neutral-100);
+  height: 4rem;
+}
+footer .electrical-box {
+  padding: 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(199, 199, 199, 1) 0%,
+    rgba(225, 225, 225, 1) 15%,
+    rgba(216, 216, 216, 1) 41%,
+    rgba(197, 197, 197, 1) 53%,
+    rgba(180, 180, 180, 1) 69%,
+    rgba(138, 138, 138, 1) 84%
     );
-    outline: 0.2rem groove var(--clr-neutral-400);
-    outline-offset: -1rem;
-  }
+  outline: 0.2rem groove var(--clr-neutral-400);
+  outline-offset: -1rem;
 }
 
 hr {
@@ -139,33 +142,32 @@ hr {
     var(--clr-red) 75%,
     var(--clr-neutral-100) 75%,
     var(--clr-neutral-200) 100%
-  );
+    );
   border: none;
   height: 6rem;
   margin-inline: calc(var(--main-padding) * -1);
   position: relative;
   overflow: visible;
-
-  &::before {
-    content: "";
-    --_width: calc(var(--width-outer) / 2);
-    width: var(--_width);
-    height: 100%;
-    background: var(--clr-red);
-    position: absolute;
-    left: calc(var(--_width) * -1);
-    border-radius: 100% 0% 0% 100% / 50% 50% 50% 50%;
-  }
-  &::after {
-    content: "";
-    --_width: calc(var(--width-outer) / 2);
-    width: var(--_width);
-    height: 100%;
-    background: var(--clr-red);
-    position: absolute;
-    right: calc(var(--_width) * -1);
-    border-radius: 0% 100% 100% 0% / 50% 50% 50% 50%;
-  }
+}
+hr::before {
+  content: "";
+  --_width: calc(var(--width-outer) / 2);
+  width: var(--_width);
+  height: 100%;
+  background: var(--clr-red);
+  position: absolute;
+  left: calc(var(--_width) * -1);
+  border-radius: 100% 0% 0% 100% / 50% 50% 50% 50%;
+}
+hr::after {
+  content: "";
+  --_width: calc(var(--width-outer) / 2);
+  width: var(--_width);
+  height: 100%;
+  background: var(--clr-red);
+  position: absolute;
+  right: calc(var(--_width) * -1);
+  border-radius: 0% 100% 100% 0% / 50% 50% 50% 50%;
 }
 
 img {
@@ -191,32 +193,6 @@ figcaption {
   padding: 0.5rem;
   border-radius: 0.5rem;
   margin-block: 0.5rem;
-}
-
-fieldset {
-  border: 1px solid #ed6e78;
-  border-radius: 0.5rem;
-  margin: 0;
-}
-
-legend {
-  background-color: #ed6e78;
-  border-radius: 0.5rem;
-  color: black;
-  padding: 0.5rem;
-}
-
-label {
-  cursor: pointer;
-  display: block;
-  margin-block: 1rem;
-  width: fit-content;
-  -webkit-user-select: none;
-  user-select: none;
-}
-
-input[type="radio"] {
-  margin-inline-end: 0.5rem;
 }
 
 h1,
@@ -258,22 +234,17 @@ h3,
   font-weight: 400;
 }
 
-a:has(h1, .h1) {
-  text-underline-offset: 0.5em;
-  text-decoration-thickness: 2px;
-}
-
 a {
   color: inherit;
-  text-decoration-line: underline;
+  text-decoration: underline;
 }
 
 @media (hover: hover) {
-  a:hover {
+  p a:hover {
     color: revert;
   }
 }
-a:is(:active, :focus-visible) {
+p a:is(:active, :focus-visible) {
   color: revert;
 }
 
@@ -304,31 +275,31 @@ dt:after {
 /* CSS for syntax highlighting */
 @layer highlighting {
   /*
-   * LICENSE
-   * 
-   * Tomorrow Theme is released under the MIT License:
-   * 
-   * Copyright (C) 2011 [Chris Kempson](https://github.com/chriskempson)
-   * 
-   * Permission is hereby granted, free of charge, to any person obtaining
-   * a copy of this software and associated documentation files (the
-   * "Software"), to deal in the Software without restriction, including
-   * without limitation the rights to use, copy, modify, merge, publish,
-   * distribute, sublicense, and/or sell copies of the Software, and to
-   * permit persons to whom the Software is furnished to do so, subject to
-   * the following conditions:
-   * 
-   * The above copyright notice and this permission notice shall be
-   * included in all copies or substantial portions of the Software.
-   * 
-   * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-   * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-   * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-   * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-   * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-   * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-   * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-   */
+* LICENSE
+* 
+* Tomorrow Theme is released under the MIT License:
+* 
+* Copyright (C) 2011 [Chris Kempson](https://github.com/chriskempson)
+* 
+* Permission is hereby granted, free of charge, to any person obtaining
+* a copy of this software and associated documentation files (the
+* "Software"), to deal in the Software without restriction, including
+* without limitation the rights to use, copy, modify, merge, publish,
+* distribute, sublicense, and/or sell copies of the Software, and to
+* permit persons to whom the Software is furnished to do so, subject to
+* the following conditions:
+* 
+* The above copyright notice and this permission notice shall be
+* included in all copies or substantial portions of the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+* MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+* NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+* LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+* OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+* WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
 
   pre .hll {
     background-color: #373b41;

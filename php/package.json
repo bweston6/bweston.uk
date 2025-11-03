@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "doiuse": "doiuse",
+    "postcss": "postcss"
+  },
+  "devDependencies": {
+    "doiuse": "^6.0.5",
+    "postcss-cli": "^11.0.1"
+  }
+}
