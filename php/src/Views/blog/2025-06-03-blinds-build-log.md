@@ -7,7 +7,7 @@ modified: '2025-06-03T14:57+01:00'
 
 <?php require_once dirname(__DIR__) . "/image.php"; ?>
 
-# Home Assistant Automated Blinds Build Log
+## Home Assistant Automated Blinds Build Log
 
 <dl class="article-dates inline">
 <dt>Written</dt>
@@ -22,8 +22,8 @@ The goals of this project are as follows:
 * Make use of the stepper motor drivers that have been sitting in my parts drawer for too long.
 * Have as many parts 3D printable as possible.
 
-## The Mock-up
-### Electronics
+### The Mock-up
+#### Electronics
 <?= image("/assets/breadboard.avif", "Breadboard with a barrel jack connected to the power rails on flying leads. From left to right there's a Raspberry Pi Pico W, A4988 stepper motor driver and L78 series linear regulator."); ?>
 
 To get things started I laid out some components on a breadboard so I could get the stepper motor moving. The brains of the project is a Raspberry Pi Pico W running [ESPHome](https://esphome.io/components/rp2040.html). This is connected up to a cheap A4988 stepper motor driver powered by a 24v supply.
@@ -38,7 +38,7 @@ $$
 
 This means that given a peak power draw of maybe 100mA for the Pico and A4988 combined, the little regulator would be dissipating 1.9 Watts. The regulator has protections to ensure that is doesn't overheat but it would definitely require a heat sink for the final build.
 
-### Software
+#### Software
 Next is configuration to enable ESPHome and Home Assistant to interact with the motor. ESPHome provides a [Docker container](https://hub.docker.com/r/esphome/esphome) that can generate firmware for your microcontroller based on yaml files for configuration. After some hacking I had something like this:
 
 <?= image("/assets/esphome.avif", "ESPhome online configuration editor showing the start of the blinds configuration."); ?>
@@ -68,7 +68,7 @@ Here I'm using a [template](https://esphome.io/automations/templates.html) to ex
 <?= image("/assets/home-assistant-buttons.avif", "Up, down, and stop buttons for blinds in the Home Assistant web interface.", "width-50"); ?>
 </div>
 
-### Gearing
+#### Gearing
 My blinds are huge and heavy, even with the maximum current the A4988 can provide they won't budge under just the power of the stepper motor. To get an output with enough torque to move them I'm using this [5:1 planetary gearbox](https://www.printables.com/model/44974-nema-17-stepper-51-planetary-gearbox-with-5mm-shaf) that a co-worker recommended when he got earshot of my issues. 
 
 <?= image("/assets/gearbox-side.avif", "Printed gearbox attached to the NEMA 17 stepper motor."); ?>
@@ -77,7 +77,7 @@ My blinds are huge and heavy, even with the maximum current the A4988 can provid
 
 It wasn't a long print and after assembling using the parts list in the description, the operation is smooth and quiet. With the new gearbox mounted the blinds are moving just fine and it's not such a strong reduction that it can't be back driven. 
 
-## The Installation
+### The Installation
 To attach the assembly to the wall I remixed this [mount designed to motorise bead blinds](https://www.thingiverse.com/thing:5965826) to fit where the plastic loop holding the blind beads was screwed to the wall. However, once again my very heavy blinds strike back! The beads don't have enough grip against the gear from the model, so I further modified the design to fit a gear that completely surrounds each bead to grip it. With that the mechanical interface to the blinds is complete, but a breadboard isn't permanent enough for something I want to leave plugged in 24hrs a day. 
 
 This is the schematic for the final circuit which I built up onto some strip board I had lying around:
@@ -96,5 +96,5 @@ I measured up the board and designed a small box that can hide everything out th
 
 With that I'm rather pleased with how the whole installation came out. The only remaining issue is that the whole system operates by dead-reckoning. Occasionally the stepper motor slips or there's some delay in ESPHome which causes the position of the blind's open and closed states to drift out of sync with reality. I've made a number input, in Home Assistant, that allows me to trim the blinds back into position if it becomes an issue but after several months I haven't had to use it often enough to be a problem. The only real problem now is that I've got a project shaped hole in my evenings that will inevitably be filled with Clarkson's Farm and Taskmaster. I'll just have to wait until another idea crosses my mind.
 
-## Models & Configuration
+### Models & Configuration
 You can access the configuration required to make this project work on [my GitHub](https://github.com/bweston6). I haven't posted the 3D models yet but if you want them before they're up, give me a nudge on [blinds@bweston.uk](mailto:blinds@bweston.uk).

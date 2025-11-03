@@ -23,49 +23,50 @@ require_once "lqip.php";
 	</head>
 	<body>
 		<header>
-			<section class="top" aria-label="top">
-				<div class="wrapper">
-					<p class="h1">Ben Weston</p>
-					<p>Welcome! Today is <?= date("l F j, Y") ?> and this website has had <?= require("hits.php"); ?> hits.</p>
-				</div>
-			</section>
-			<section class="bottom" aria-label="bottom">
-				<nav aria-label="primary" class="wrapper">
-					<a href="#main">
-						<h1>Blog</h1>
-						<p>Scroll to enter ↓</p>
-					</a>
-				</nav>
-			</section>
+			<div class="dome">
+				<h1>Ben Weston</h1>
+			</div>
+			<nav><a href="#blog">Blog</a> & <a href="#main">Links</a></nav>
+			<div class="banner"></div>
 		</header>
+		<main id="main">
+			<p>
+				Welcome to my site! It houses the longest <a href="https://www.the-telephone-box.co.uk/kiosks/kx100-plus/">KX100
+					Plus</a> telephone box that I've seen on the internet. Unfortunately you can't make calls ✆ or texts ✉, but
+				you can <a href="mailto:me@bweston.uk">send mail ＠</a> if you'd like to comment on a post! Please ask if you'd
+				like to have your thoughts featured at the end of an article.
+			</p>
+			<p>
+				You will find my most recent posts below which often include
+				project diaries and interesting links from across the web.
+			</p>
+			<hr>
+			<section id="blog">
+				<?php
+      	$posts = glob(__DIR__ . '/blog/*.php');
 
-		<main id="main" class="wrapper">
-			<?php
-			$posts = glob(__DIR__ . '/blog/*.php');
-
-			foreach ($posts as $post) {
-				echo "<article>";
-    			require $post;   
-				echo "</article>";
-			} ?>
+				foreach ($posts as $post) {
+    		echo "<article>";
+    		require $post;
+    		echo "</article><hr>";
+				} ?>
+			</section>
 		</main>
 		<footer>
-			<div class="wrapper">
-				<fieldset>
-					<legend>Color Scheme</legend>
-					<label><input name="color-scheme" type="radio" value="light dark" checked>System</label>
-					<label><input name="color-scheme" type="radio" value="light">Light</label>
-					<label><input name="color-scheme" type="radio" value="dark">Dark</label>
-				</fieldset>
-
-				<h2>Page Load Statistics</h2>
-				<dl>
-					<dt>Total Asset Size</dt>
-					<dd><span id="asset-size">-.-</span></dd>
-					<dt>Estimated Download Time on Slow 4G (1.2 Mb/s)</dt>
-					<dd><span id="download-time">-.-</span></dd>
-				</dl>
-				<noscript>This tidbit requires JavaScript to be enabled</noscript>
+			<div class="bottom-window">
+				<div class="electrical-box">
+					<h2>Site Statistics</h2>
+					<dl>
+						<dt>Hits</dt>
+						<dd><?= require("hits.php"); ?> requests</dd>
+						<dt>Total Asset Size</dt>
+						<dd><span id="asset-size">-.-</span></dd>
+						<dt>Estimated Download Time on Slow 4G (1.2 Mb/s)</dt>
+						<dd><span id="download-time">-.-</span></dd>
+					</dl>
+					<noscript>This tidbit requires JavaScript to be enabled</noscript>
+				</div>
+				<div class="bottom-frame"></div>
 			</div>
 		</footer>
 	</body>

@@ -1,7 +1,7 @@
 <?php require_once dirname(__DIR__) . "/image.php"; ?>
 
-<h1 id="home-assistant-automated-blinds-build-log">Home Assistant
-Automated Blinds Build Log</h1>
+<h2 id="home-assistant-automated-blinds-build-log">Home Assistant
+Automated Blinds Build Log</h2>
 <dl class="article-dates inline">
 <dt>Written</dt>
 <dd><time datetime="2025-06-03T14:57+01:00">2025-06-03T14:57+01:00</time></dd>
@@ -19,8 +19,8 @@ control and scheduling.</li>
 parts drawer for too long.</li>
 <li>Have as many parts 3D printable as possible.</li>
 </ul>
-<h2 id="the-mock-up">The Mock-up</h2>
-<h3 id="electronics">Electronics</h3>
+<h3 id="the-mock-up">The Mock-up</h3>
+<h4 id="electronics">Electronics</h4>
 <?= image("/assets/breadboard.avif", "Breadboard with a barrel jack connected to the power rails on flying leads. From left to right there's a Raspberry Pi Pico W, A4988 stepper motor driver and L78 series linear regulator."); ?>
 
 <p>To get things started I laid out some components on a breadboard so I
@@ -42,7 +42,7 @@ P_\text{waste} = (V_\text{in}-V_\text{out})\cdot I_\text{out}
 and A4988 combined, the little regulator would be dissipating 1.9 Watts.
 The regulator has protections to ensure that is doesn't overheat but it
 would definitely require a heat sink for the final build.</p>
-<h3 id="software">Software</h3>
+<h4 id="software">Software</h4>
 <p>Next is configuration to enable ESPHome and Home Assistant to
 interact with the motor. ESPHome provides a <a
 href="https://hub.docker.com/r/esphome/esphome">Docker container</a>
@@ -83,7 +83,7 @@ stop the thing too.</p>
 
 </div>
 
-<h3 id="gearing">Gearing</h3>
+<h4 id="gearing">Gearing</h4>
 <p>My blinds are huge and heavy, even with the maximum current the A4988
 can provide they won't budge under just the power of the stepper motor.
 To get an output with enough torque to move them I'm using this <a
@@ -98,7 +98,7 @@ of my issues.</p>
 the description, the operation is smooth and quiet. With the new gearbox
 mounted the blinds are moving just fine and it's not such a strong
 reduction that it can't be back driven.</p>
-<h2 id="the-installation">The Installation</h2>
+<h3 id="the-installation">The Installation</h3>
 <p>To attach the assembly to the wall I remixed this <a
 href="https://www.thingiverse.com/thing:5965826">mount designed to
 motorise bead blinds</a> to fit where the plastic loop holding the blind
@@ -146,7 +146,7 @@ to use it often enough to be a problem. The only real problem now is
 that I've got a project shaped hole in my evenings that will inevitably
 be filled with Clarkson's Farm and Taskmaster. I'll just have to wait
 until another idea crosses my mind.</p>
-<h2 id="models--configuration">Models &amp; Configuration</h2>
+<h3 id="models--configuration">Models &amp; Configuration</h3>
 <p>You can access the configuration required to make this project work
 on <a href="https://github.com/bweston6">my GitHub</a>. I haven't posted
 the 3D models yet but if you want them before they're up, give me a
