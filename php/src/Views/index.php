@@ -11,15 +11,12 @@ require_once "lqip.php";
 		<meta name="description" content="The 'anti-content' website.">
 		<script type="module" async src="script.js"></script>
 		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
-		<link rel="preload" href="/fonts/CrimsonText-BoldItalic.woff2" as="font" fetchpriority="high">
-		<link rel="preload" href="/fonts/CrimsonText-Italic.woff2" as="font">
+		<!-- h1 font -->
+		<link rel="preload" href="/fonts/CrimsonText-Italic.woff2" as="font" fetchpriority="high">
 		<!-- <link rel="stylesheet" href="style.css"> -->
 		<style>
 			<?php require dirname(BASEPATH) . "/public/style.css" ?>
 		</style>
-
-		<!-- low quality image previews -->
-		<?= getLqipLinkTags(); ?>
 	</head>
 	<body>
 		<header>
