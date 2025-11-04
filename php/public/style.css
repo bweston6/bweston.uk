@@ -503,42 +503,36 @@ dt:after {
 }
 
 @font-face {
-  font-display: block;
   font-family: "Crimson Text";
   font-style: normal;
   font-weight: 700;
   src: url("/fonts/CrimsonText-Bold.woff2");
 }
 @font-face {
-  font-display: block;
   font-family: "Crimson Text";
   font-style: italic;
   font-weight: 700;
   src: url("/fonts/CrimsonText-BoldItalic.woff2");
 }
 @font-face {
-  font-display: block;
   font-family: "Crimson Text";
   font-style: italic;
   font-weight: 400;
   src: url("/fonts/CrimsonText-Italic.woff2");
 }
 @font-face {
-  font-display: block;
   font-family: "Crimson Text";
   font-style: normal;
   font-weight: 400;
   src: url("/fonts/CrimsonText-Regular.woff2");
 }
 @font-face {
-  font-display: block;
   font-family: "Crimson Text";
   font-style: normal;
   font-weight: 600;
   src: url("/fonts/CrimsonText-SemiBold.woff2");
 }
 @font-face {
-  font-display: block;
   font-family: "Crimson Text";
   font-style: italic;
   font-weight: 600;
