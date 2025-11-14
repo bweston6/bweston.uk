@@ -66,7 +66,7 @@ $converter = new MarkdownConverter($environment);
 			<hr>
 			<section id="blog">
 				<?php $posts = glob(__DIR__ . '/blog/*.md'); ?>
-				<?php foreach ($posts as $post) : ?>
+				<?php foreach (array_reverse($posts) as $post) : ?>
 				<?php
         $result = $converter->convert(file_get_contents($post));
 				    if ($result instanceof RenderedContentWithFrontMatter) {
