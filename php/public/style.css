@@ -248,6 +248,10 @@ p a:is(:active, :focus-visible) {
   color: revert;
 }
 
+p:has(img:only-child) {
+  display: contents;
+}
+
 pre {
   overflow-x: auto;
   padding: 1rem;

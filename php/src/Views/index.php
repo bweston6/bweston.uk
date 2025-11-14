@@ -1,5 +1,31 @@
 <?php
-require_once "lqip.php";
+
+use TuchSoft\CommonMarkHeadingShifter\HeadingShifterExtension;
+
+use League\CommonMark\Extension\CommonMark\Node\Inline\Image;
+use League\CommonMark\Environment\Environment;
+use League\CommonMark\Extension\Attributes\AttributesExtension;
+use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
+use League\CommonMark\Extension\FrontMatter\FrontMatterExtension;
+use League\CommonMark\Extension\FrontMatter\Output\RenderedContentWithFrontMatter;
+use League\CommonMark\MarkdownConverter;
+use App\Renderers\MyImageRenderer;
+
+$markdownConfig = [
+  'heading_shifter' => [
+    'shift_by' => 1
+  ]
+];
+
+$environment = new Environment($markdownConfig);
+$environment->addExtension(new AttributesExtension());
+$environment->addExtension(new CommonMarkCoreExtension());
+$environment->addExtension(new FrontMatterExtension());
+$environment->addExtension(new HeadingShifterExtension());
+
+$environment->addRenderer(Image::class, new MyImageRenderer());
+
+$converter = new MarkdownConverter($environment);
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +41,7 @@ require_once "lqip.php";
 		<link rel="preload" href="/fonts/CrimsonText-Italic.woff2" as="font" fetchpriority="high">
 		<!-- <link rel="stylesheet" href="style.css"> -->
 		<style>
-			<?php require dirname(BASEPATH) . "/public/style.css" ?>
+			<?= file_get_contents(dirname(BASEPATH) . "/public/style.css") ?>
 		</style>
 	</head>
 	<body>
@@ -39,14 +65,28 @@ require_once "lqip.php";
 			</p>
 			<hr>
 			<section id="blog">
+				<?php $posts = glob(__DIR__ . '/blog/*.md'); ?>
+				<?php foreach ($posts as $post) : ?>
 				<?php
-      	$posts = glob(__DIR__ . '/blog/*.php');
-
-				foreach ($posts as $post) {
-    		echo "<article>";
-    		require $post;
-    		echo "</article><hr>";
-				} ?>
+        $result = $converter->convert(file_get_contents($post));
+				    if ($result instanceof RenderedContentWithFrontMatter) {
+				        $frontMatter = $result?->getFrontMatter();
+				    }
+				    ?>
+				<article>
+					<h2><?= $frontMatter['title']; ?></h2>
+					<dl class='article-dates inline'>
+						<dt>Written</dt>
+						<dd><time datetime='<?= $frontMatter['date'] ?>'><?= $frontMatter['date'] ?></time></dd>
+						<?php if (isset($frontMatter['modified']) && $frontMatter['modified'] != $frontMatter['date']) : ?>
+						<dt>Updated</dt>
+						<dd><time datetime='<?= $frontMatter['modified'] ?>'><?= $frontMatter['modified'] ?></time></dd>
+						<?php endif; ?>
+					</dl>
+					<?= $result ?>
+				</article>
+				<hr>
+				<?php endforeach; ?>
 			</section>
 		</main>
 		<footer>

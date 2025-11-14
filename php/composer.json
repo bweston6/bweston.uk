@@ -13,5 +13,9 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {}
+    "require": {
+        "league/commonmark": "^2.7",
+        "symfony/yaml": "^7.3",
+        "tuchsoft/commonmark-ext-heading-shifter": "^1.0"
+    }
 }

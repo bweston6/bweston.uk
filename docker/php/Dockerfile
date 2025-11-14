@@ -1,5 +1,12 @@
 FROM php:8-fpm AS composer
 
+# install composer deps
+RUN <<EOF
+apt-get update
+apt-get install -y --no-install-recommends unzip
+rm -rf /var/cache/apt/archives /var/lib/apt/lists/*
+EOF
+
 # Install composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
