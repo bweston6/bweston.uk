@@ -86,6 +86,9 @@ header nav {
     -0.5rem 0 0 0 var(--clr-neutral-300),
     0.5rem 0 0 0 var(--clr-neutral-300);
 }
+header nav a {
+  color: inherit;
+}
 header .banner {
   background-color: var(--clr-red);
   border-left: solid calc(var(--width-outer) * 2);
@@ -235,17 +238,7 @@ h3,
 }
 
 a {
-  color: inherit;
   text-decoration: underline;
-}
-
-@media (hover: hover) {
-  p a:hover {
-    color: revert;
-  }
-}
-p a:is(:active, :focus-visible) {
-  color: revert;
 }
 
 p:has(img:only-child) {
