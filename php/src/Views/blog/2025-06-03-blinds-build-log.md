@@ -3,6 +3,8 @@ title: Home Assistant Automated Blinds Build Log
 author: Ben Weston
 date: '2025-06-03T14:57+01:00'
 modified: '2025-06-03T14:57+01:00'
+type:
+  - 'blog'
 ---
 
 Living in a flat in the middle of a city has its perks but having neighbours within throwing distance of all your windows is not one of them. For better or worse, opening and closing blinds is an essential part of my day but one which can be automated!

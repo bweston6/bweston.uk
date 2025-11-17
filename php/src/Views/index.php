@@ -49,7 +49,7 @@ $converter = new MarkdownConverter($environment);
 			<div class="dome">
 				<h1>Ben Weston</h1>
 			</div>
-			<nav><a href="#blog">Blog</a> & <a href="#main">Links</a></nav>
+			<nav><a href="#blog">Blog</a> & <a href="#links">Links</a></nav>
 			<div class="banner"></div>
 		</header>
 		<main id="main">
@@ -64,7 +64,7 @@ $converter = new MarkdownConverter($environment);
 				project diaries and interesting links from across the web.
 			</p>
 			<hr>
-			<section id="blog">
+			<section>
 				<?php $posts = glob(__DIR__ . '/blog/*.md'); ?>
 				<?php foreach (array_reverse($posts) as $post) : ?>
 				<?php
@@ -73,7 +73,7 @@ $converter = new MarkdownConverter($environment);
 				        $frontMatter = $result?->getFrontMatter();
 				    }
 				    ?>
-				<article>
+				<article id="<?= join(',', $frontMatter['type']) ?>">
 					<h2><?= $frontMatter['title']; ?></h2>
 					<dl class='article-dates inline'>
 						<dt>Written</dt>
