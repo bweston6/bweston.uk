@@ -1,33 +1,3 @@
-<?php
-
-use TuchSoft\CommonMarkHeadingShifter\HeadingShifterExtension;
-
-use League\CommonMark\Extension\CommonMark\Node\Inline\Image;
-use League\CommonMark\Environment\Environment;
-use League\CommonMark\Extension\Attributes\AttributesExtension;
-use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
-use League\CommonMark\Extension\FrontMatter\FrontMatterExtension;
-use League\CommonMark\Extension\FrontMatter\Output\RenderedContentWithFrontMatter;
-use League\CommonMark\MarkdownConverter;
-use App\Renderers\MyImageRenderer;
-
-$markdownConfig = [
-  'heading_shifter' => [
-    'shift_by' => 1
-  ]
-];
-
-$environment = new Environment($markdownConfig);
-$environment->addExtension(new AttributesExtension());
-$environment->addExtension(new CommonMarkCoreExtension());
-$environment->addExtension(new FrontMatterExtension());
-$environment->addExtension(new HeadingShifterExtension());
-
-$environment->addRenderer(Image::class, new MyImageRenderer());
-
-$converter = new MarkdownConverter($environment);
-?>
-
 <!DOCTYPE html>
 <html lang="en-gb">
 	<head>
@@ -47,7 +17,7 @@ $converter = new MarkdownConverter($environment);
 	<body>
 		<header>
 			<div class="dome">
-				<h1>Ben Weston</h1>
+				<h1><a href="/">Ben Weston</a></h1>
 			</div>
 			<nav><a href="#blog">Blog</a> & <a href="#links">Links</a></nav>
 			<div class="banner"></div>
@@ -65,25 +35,18 @@ $converter = new MarkdownConverter($environment);
 			</p>
 			<hr>
 			<section>
-				<?php $posts = glob(__DIR__ . '/blog/*.md'); ?>
 				<?php foreach (array_reverse($posts) as $post) : ?>
-				<?php
-        $result = $converter->convert(file_get_contents($post));
-				    if ($result instanceof RenderedContentWithFrontMatter) {
-				        $frontMatter = $result?->getFrontMatter();
-				    }
-				    ?>
-				<article id="<?= join(',', $frontMatter['type']) ?>">
-					<h2><?= $frontMatter['title']; ?></h2>
+				<article id="<?= join(',', $post["front_matter"]['type']) ?>">
+					<h2><a href="/post/<?= $post["slug"] ?>"><?= $post["front_matter"]['title']; ?></a></h2>
 					<dl class='article-dates inline'>
 						<dt>Written</dt>
-						<dd><time datetime='<?= $frontMatter['date'] ?>'><?= $frontMatter['date'] ?></time></dd>
-						<?php if (isset($frontMatter['modified']) && $frontMatter['modified'] != $frontMatter['date']) : ?>
+						<dd><time datetime='<?= $post["front_matter"]['date'] ?>'><?= $post["front_matter"]['date'] ?></time></dd>
+						<?php if (isset($post["front_matter"]['modified']) && $post["front_matter"]['modified'] != $post["front_matter"]['date']) : ?>
 						<dt>Updated</dt>
-						<dd><time datetime='<?= $frontMatter['modified'] ?>'><?= $frontMatter['modified'] ?></time></dd>
+						<dd><time datetime='<?= $post["front_matter"]['modified'] ?>'><?= $post["front_matter"]['modified'] ?></time></dd>
 						<?php endif; ?>
 					</dl>
-					<?= $result ?>
+					<?= $post["result"] ?>
 				</article>
 				<hr>
 				<?php endforeach; ?>

@@ -12,7 +12,7 @@ services:
       - TZ=${TZ}
     volumes:
       - ./nginx:/etc/nginx
-      - ./php/public:/etc/nginx/html/website:ro
+      - ./php/public:/var/www/html/public:ro
       - phpsocket:/var/run
     ports:
       - ${HTTP_PORT}:80

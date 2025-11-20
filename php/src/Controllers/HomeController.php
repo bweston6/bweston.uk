@@ -1,14 +1,15 @@
 <?php
-declare(strict_types = 1);
 
 namespace App\Controllers;
 
 use App\Controller;
+use App\Models\PostModel;
 
 class HomeController extends Controller
 {
-    public function index():void
+    public function index(): string
     {
-        $this->render('index');
+        $posts = PostModel::getPosts();
+        return $this->render('index', ["posts" => $posts]);
     }
 }

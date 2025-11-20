@@ -1,37 +1,39 @@
 <?php
-declare(strict_types = 1);
 
 namespace App;
 
 define('BASEPATH', __DIR__ . '');
-
 class Router
 {
-    protected $routes = [];
-
-    private function addRoute(string $route, string $controller, string $action, string $method):void
+    private array $routes = [];
+    public function addRoute(string $method, string $path, callable|array $callback): void
     {
-        $this->routes[$method][$route] = ['controller' => $controller, 'action' => $action];
+        // Convert route parameters to regex pattern
+        $pattern = preg_replace('/\{([a-zA-Z]+)\}/', '(?P<$1>[^/]+)', $path);
+        $pattern = "#^$pattern$#";
+        $this->routes[$method][$pattern] = $callback;
     }
-
-    public function get(string $route, string $controller, string $action):void
+    public function resolve(): mixed
     {
-        $this->addRoute($route, $controller, $action, "GET");
-    }
-
-    public function dispatch():void
-    {
-        $uri = strtok($_SERVER['REQUEST_URI'], '?');
         $method = $_SERVER['REQUEST_METHOD'];
-
-        if (array_key_exists($uri, $this->routes[$method])) {
-            $controller = $this->routes[$method][$uri]['controller'];
-            $action = $this->routes[$method][$uri]['action'];
-
-            $controller = new $controller();
-            $controller->$action();
-        } else {
-            throw new \Exception("No route found for URI: $uri");
+        $path = $_SERVER['REQUEST_URI'] ?? '/';
+        $path = explode('?', $path)[0];
+        foreach ($this->routes[$method] ?? [] as $pattern => $callback) {
+            if (preg_match($pattern, $path, $matches)) {
+                $params = array_filter(
+                    $matches,
+                    fn ($key) => !is_numeric($key),
+                    ARRAY_FILTER_USE_KEY
+                );
+                if (is_array($callback)) {
+                    [$class, $method] = $callback;
+                    $controller = new $class();
+                    return $controller->$method($params);
+                }
+                return $callback($params);
+            }
         }
+        http_response_code(404);
+        return "404 Not Found";
     }
 }
