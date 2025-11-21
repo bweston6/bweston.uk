@@ -2,15 +2,16 @@
 
 namespace App\Models;
 
-use TuchSoft\CommonMarkHeadingShifter\HeadingShifterExtension;
-use League\CommonMark\Extension\CommonMark\Node\Inline\Image;
+use App\Renderers\MyImageRenderer;
 use League\CommonMark\Environment\Environment;
 use League\CommonMark\Extension\Attributes\AttributesExtension;
 use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
+use League\CommonMark\Extension\CommonMark\Node\Inline\Image;
+use League\CommonMark\Extension\DescriptionList\DescriptionListExtension;
 use League\CommonMark\Extension\FrontMatter\FrontMatterExtension;
 use League\CommonMark\Extension\FrontMatter\Output\RenderedContentWithFrontMatter;
 use League\CommonMark\MarkdownConverter;
-use App\Renderers\MyImageRenderer;
+use TuchSoft\CommonMarkHeadingShifter\HeadingShifterExtension;
 
 class PostModel
 {
@@ -25,6 +26,7 @@ class PostModel
         $environment = new Environment($markdownConfig);
         $environment->addExtension(new AttributesExtension());
         $environment->addExtension(new CommonMarkCoreExtension());
+        $environment->addExtension(new DescriptionListExtension());
         $environment->addExtension(new FrontMatterExtension());
         $environment->addExtension(new HeadingShifterExtension());
 
@@ -64,6 +66,7 @@ class PostModel
         $environment = new Environment($markdownConfig);
         $environment->addExtension(new AttributesExtension());
         $environment->addExtension(new CommonMarkCoreExtension());
+        $environment->addExtension(new DescriptionListExtension());
         $environment->addExtension(new FrontMatterExtension());
         $environment->addExtension(new HeadingShifterExtension());
 
