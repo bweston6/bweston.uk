@@ -6,6 +6,7 @@
 		<title>Blog | Ben Weston</title>
 		<meta name="description" content="The 'anti-content' website.">
 		<script type="module" async src="script.js"></script>
+		<link rel="alternate" type="application/rss+xml" href="/feed"/>
 		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
 		<!-- h1 font -->
 		<link rel="preload" href="/fonts/CrimsonText-Italic.woff2" as="font" fetchpriority="high">
