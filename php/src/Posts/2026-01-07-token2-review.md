@@ -26,7 +26,7 @@ That leads us to today where, once again, I've got a broken Token2 security key.
 
 ![A red 3D printed case completely encloses the security key leaving only the USB-C port exposed.](/assets/pin+r3.jpg)
 
-The 3D print included a pause so that I could insert the key into the case before the printer permanently cinched the key into it's new plastic home. The fit is very good so [do give me a shout](mailto:me@bweston.uk) if you already have a Token2 key you'd like to protect and would like the files.
+The 3D print included a pause so that I could insert the key into the case before the printer permanently cinched the key into it's new plastic home. The fit is very good so [do give me a shout](&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#101;&#64;&#98;&#119;&#101;&#115;&#116;&#111;&#110;&#46;&#117;&#107;) if you already have a Token2 key you'd like to protect and would like the files.
 
 Although this new key didn't get crushed, after a year the USB-C port stopped working which made it useless for devices without NFC. A real shame because both of these keys worked so well when they were new. This leaves me only able to recommend the PIN+ Type C series if you're the sort of person who likes to keep their keys in an anti-static bag, away from hench pockets. Hopefully, their other mechanical designs are more robust but I've been stung twice too many and I won't be made a fool for a third time.
 

@@ -27,7 +27,7 @@
 			<p>
 				Welcome to my site! It houses the longest <a href="https://www.the-telephone-box.co.uk/kiosks/kx100-plus/">KX100
 					Plus</a> telephone box that I've seen on the internet. Unfortunately you can't make calls ✆ or texts ✉, but
-				you can <a href="mailto:me@bweston.uk">send mail ＠</a> if you'd like to comment on a post! Please ask if you'd
+				you can <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#101;&#64;&#98;&#119;&#101;&#115;&#116;&#111;&#110;&#46;&#117;&#107;">send mail ＠</a> if you'd like to comment on a post! Please ask if you'd
 				like to have your thoughts featured at the end of an article.
 			</p>
 			<p>

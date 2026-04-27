@@ -6,7 +6,7 @@
     <description>The 'anti-content' website.</description>
     <language>en-gb</language>
     <docs>https://www.rssboard.org/rss-specification</docs>
-    <webMaster>me@bweston.uk (Ben Weston)</webMaster>
+    <webMaster>&#109;&#101;&#64;&#98;&#119;&#101;&#115;&#116;&#111;&#110;&#46;&#117;&#107; (Ben Weston)</webMaster>
 
     <?php foreach (array_reverse($posts) as $post) : ?>
     <item>
